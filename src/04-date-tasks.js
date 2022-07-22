@@ -99,9 +99,6 @@ function angleBetweenClockHands(date) {
   const d = new Date(date);
   const hours = d.getHours() % 12;
   const minutes = d.getMinutes();
-
-
-
   const ha = 0.5 * (60 * hours + minutes);
   const ma = 6 * minutes;
 
