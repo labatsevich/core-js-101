@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* *************************************************************************************************
  *                                                                                                *
  * Please read the following tutorial before implementing tasks:                                   *
@@ -361,8 +362,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -378,8 +379,26 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  //throw new Error('Not implemented');
+
+  const firstPath = pathes[0];
+  let same = true;
+  let i = 0;
+  let commonPath = '';
+
+  while (same && i < firstPath.length) {
+    for (let p = 1; p < pathes.length && same; p += 1) {
+      same = firstPath[i] === pathes[p][i];
+    }
+
+    if (same) {
+      commonPath += firstPath[i];
+    }
+    i += 1;
+  }
+
+  return commonPath.slice(0, commonPath.lastIndexOf('/') + 1);
 }
 
 
